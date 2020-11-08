@@ -5,7 +5,7 @@ from matplotlib.animation import FuncAnimation
 # Animation showing the path of minimum time for an object accelerating due to gravity (Brachistochrone problem) using the solutions which were solved as part of the graded tutorial in the Mathematical Physics class.
 
 # constants and parametric equations
-g = -9.81
+g = 9.81
 A = 1/(2*g)
 t = np.linspace(0, 5, 1000)
 linex = A * (t - 0.5*np.sin(2*t))
