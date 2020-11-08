@@ -50,4 +50,5 @@ def update(t):
 
 
 animate = FuncAnimation(fig, update, interval=10, blit=True, repeat=True, frames=np.linspace(0, 2*np.pi, 360, endpoint=False))
+animate.save('curveanimation.gif', writer='imagemagick', fps=30)
 plt.show()
