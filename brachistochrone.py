@@ -33,8 +33,8 @@ fig, ax = plt.subplots(1, 1, figsize=(10, 10))
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_title('Curve of minimum time (Brachistochrone)')
-ax.plot(linex, liney)
-ax.axis([0, xmax, ymin, 0])
+ax.plot(linex[0:counter], liney[0:counter])
+ax.axis([0, xmax+0.001, ymin-0.001, 0])
 point, = ax.plot(0, 1, marker='o')
 
 
