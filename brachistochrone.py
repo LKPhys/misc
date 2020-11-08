@@ -1,15 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 from matplotlib.animation import FuncAnimation
 
+# Animation showing the path of minimum time for an object accelerating due to gravity (Brachistochrone problem) using the solutions which were solved as part of the graded tutorial in the Mathematical Physics class.
 
-
-A = 1
+# constants and parametric equations
+g = -9.81
+A = 1/(2*g)
 t = np.linspace(0, 5, 1000)
 linex = A * (t - 0.5*np.sin(2*t))
 liney = -A * (0.5 - 0.5*np.cos(2*t))
 
+# for loop to stop the animation once y reaches it's minimum point
 counter = 0
 for i in range(1, len(linex)):
     if abs(liney[i]) - abs(liney[i-1]) > 0:
@@ -19,7 +21,6 @@ for i in range(1, len(linex)):
 
 ymin = liney[0:counter].min()
 xmax = linex[0:counter].max()
-print(ymin, xmax)
 
 
 def position(t):
@@ -33,12 +34,9 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_title('Curve of minimum time (Brachistochrone)')
 ax.plot(linex, liney)
-ax.axis([0, 1.6, -1.1, 0])
+ax.axis([0, xmax, ymin, 0])
 point, = ax.plot(0, 1, marker='o')
 
-
-convergex = []
-convergey = []
 
 def update(t):
     x, y = position(t)
